@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Sprite\n\n# class member variables go here, for example:\n# var a = 2\n# var b = \"textvar\"\nvar curPos = 0\nfunc _ready():\n\tset_process(true)\n\tcurPos = get_parent().get_pos()  \n\n\t# Called every time the node is added to the scene.\n\t# Initialization here\n\tpass\nfunc _process(delta):\n\tcurPos.y += -delta * 100\n\tself.set_pos(curPos)\n\t#print(curPos)\n"
+
+[node name="bullet" type="Sprite"]
+
+script/script = SubResource( 1 )
+
+
