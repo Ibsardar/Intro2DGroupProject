@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="3" version="2.1" version_name="Godot Engine v2.1.stable.official">
-	<ext_resource path="res://Scenes/World.xml" type="PackedScene" index="1"></ext_resource>
+<resource_file type="PackedScene" subresource_count="4" version="2.1" version_name="Godot Engine v2.1.stable.official">
+	<ext_resource path="res://Scenes/World.xml" type="PackedScene" index="2"></ext_resource>
 	<ext_resource path="res://Graphics/UI/ui_bg.tex" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://Scripts/worldControl.gd" type="Script" index="1"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -12,7 +13,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="26">
+			<string_array  len="27">
 				<string> "TextureFrame" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
@@ -27,6 +28,7 @@
 				<string> "texture" </string>
 				<string> "expand" </string>
 				<string> "stretch_mode" </string>
+				<string> "script/script" </string>
 				<string> "World" </string>
 				<string> "Panel" </string>
 				<string> "editor/display_folded" </string>
@@ -46,9 +48,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="143"> 				-1, -1, 0, 0, -1, 13, 1, 0, 2, 0, 3, 1, 4, 1, 5, 2, 6, 2, 7, 3, 8, 3, 9, 3, 10, 3, 11, 4, 12, 1, 13, 5, 0, 0, 0, 2147483647, 14, 6, 0, 0, 0, 0, 15, 15, -1, 9, 16, 1, 3, 7, 4, 1, 5, 2, 6, 2, 7, 3, 8, 3, 9, 8, 10, 9, 0, 2, 0, 25, 17, -1, 17, 1, 0, 2, 0, 3, 1, 4, 1, 5, 2, 6, 5, 7, 10, 8, 11, 9, 10, 10, 12, 18, 13, 19, 0, 20, 0, 21, 1, 22, 14, 23, 5, 24, 15, 0, 2, 0, 25, 25, -1, 15, 3, 1, 4, 1, 5, 2, 6, 5, 7, 3, 8, 16, 9, 17, 10, 18, 18, 19, 19, 0, 20, 0, 21, 1, 22, 14, 23, 5, 24, 15, 0 </int_array>
+			<int_array  len="145"> 				-1, -1, 0, 0, -1, 14, 1, 0, 2, 0, 3, 1, 4, 1, 5, 2, 6, 2, 7, 3, 8, 3, 9, 3, 10, 3, 11, 4, 12, 1, 13, 5, 14, 6, 0, 0, 0, 2147483647, 15, 7, 0, 0, 0, 0, 16, 16, -1, 9, 17, 1, 3, 8, 4, 1, 5, 2, 6, 2, 7, 3, 8, 3, 9, 9, 10, 10, 0, 2, 0, 26, 18, -1, 17, 1, 0, 2, 0, 3, 1, 4, 1, 5, 2, 6, 5, 7, 11, 8, 12, 9, 11, 10, 13, 19, 14, 20, 0, 21, 0, 22, 1, 23, 15, 24, 5, 25, 16, 0, 2, 0, 26, 26, -1, 15, 3, 1, 4, 1, 5, 2, 6, 5, 7, 3, 8, 17, 9, 18, 10, 19, 19, 20, 20, 0, 21, 0, 22, 1, 23, 15, 24, 5, 25, 16, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="20" shared="false">
+			<array  len="21" shared="false">
 				<int> 1 </int>
 				<bool> True </bool>
 				<int> 2 </int>
@@ -56,6 +58,7 @@
 				<resource  external="0">  </resource>
 				<int> 0 </int>
 				<resource  external="1">  </resource>
+				<resource  external="2">  </resource>
 				<bool> False </bool>
 				<real> 95 </real>
 				<real> 68 </real>

@@ -4,8 +4,37 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 var height = 650
-var speed = 5
+var speed = GLOBALS.g_offense_spd_bullet
+var dmg = GLOBALS.g_offense_dmg
+var otherCollider
 
+
+func checkCollisions():
+	
+	
+	#Laser is colliding with an object
+	if get_node("KinematicBody2D").is_colliding():
+		#destroy the laser
+		get_node(".").queue_free()
+		
+		#get the other object
+		otherCollider = get_node("KinematicBody2D").get_collider()
+		
+		#Call method from otherCollider to do an event like losing health
+		otherCollider.collided()
+		
+		#
+		#  HANDLE THIS
+		#  in the "collided" function in otherCollider instead of here
+		#
+		# -------------------
+		#destroy other object
+		#otherCollider.queue_free()
+		# -------------------
+		#
+			
+			
+		
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -22,4 +51,13 @@ func _fixed_process(delta):
 	if get_node("KinematicBody2D").get_global_pos().y > height:
 		#this deletes the tree structure of Laser. 
 		get_node(".").queue_free()
+		print(get_name())
 		
+		
+	checkCollisions()
+	
+	
+	
+
+	
+	

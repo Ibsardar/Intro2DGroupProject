@@ -24,7 +24,6 @@ collision/layers = 4
 collision/mask = 0
 collision/margin = 0.08
 script/script = ExtResource( 2 )
-player_speed = 5
 
 [node name="ShipSprite" type="Sprite" parent="KinematicBody2D"]
 

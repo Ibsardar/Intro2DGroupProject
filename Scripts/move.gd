@@ -1,35 +1,46 @@
-
 extends KinematicBody2D
 
-export var MOTION_SPEED = 140
-var RayNode
+# class member variables go here, for example:
+var btn_right = false
+var btn_left = false
 
+
+var current_speed = Vector2(0,0)
+var player_speed = GLOBALS.g_defense_spd #3
+var left_boundary = GLOBALS.g_right_boundary #50
+var right_boundary = GLOBALS.g_left_boundary #750
+var shipPositionY
+
+	#set_linear_velocity(Vector2(current_speed.x,0))
+func movement(speed):
+	current_speed.x = speed
+	
+	#boundary for player 1 ------------------------------
+	if get_global_pos().x > right_boundary:
+		set_global_pos(Vector2(right_boundary,shipPositionY))
+		
+	if get_global_pos().x < left_boundary:
+		set_global_pos(Vector2(left_boundary,shipPositionY))
+	# ----------------------------------------------------
+	
+
+	move(current_speed)
+	#translate(current_speed)
+	
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	set_fixed_process(true)
-	RayNode = get_node("RayCast2D")
-	
+	shipPositionY = get_global_pos().y
+
 func _fixed_process(delta):
-	var motion = Vector2()
+	btn_right = Input.is_action_pressed("Defender_right")
+	btn_left = Input.is_action_pressed("Defender_left")
 	
-	#motion
-	if (Input.is_action_pressed("ui_up")):
-		motion += Vector2(0,-1)
-		RayNode.set_rotd(180)
-		
-	if (Input.is_action_pressed("ui_down")):
-		motion += Vector2(0,1)
-		RayNode.set_rotd(0)
-		
-	if (Input.is_action_pressed("ui_left")):
-		motion += Vector2(-1,0)
-		RayNode.set_rotd(-90)
-		
-	if (Input.is_action_pressed("ui_right")):
-		motion += Vector2(1,0)
-		RayNode.set_rotd(90)
-		
-	motion = motion.normalized() * MOTION_SPEED * delta
-	move( motion )
+	if btn_right:
+		movement(player_speed)
+	if btn_left:
+		movement(-player_speed)
+	
+
 

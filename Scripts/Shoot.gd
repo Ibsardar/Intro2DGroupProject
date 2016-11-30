@@ -19,21 +19,24 @@ func _process(delta):
 		
 		#create a copy of the laser object
 		var laserInstance = laserObject.instance()
-		var laserInstance2 = laserObject.instance()
+		
 		
 		#give the copy a name 
 		laserInstance.set_name("Laser" + str(laserCount))
-		laserInstance2.set_name("Laser" + str(laserCount+1))
+		
+		
 		
 		#add a child
 		add_child(laserInstance)
-		add_child(laserInstance2)
+	
+	
 		laserInstance.set_owner(self)
-		laserInstance2.set_owner(self)
+		
+		
 		
 		#set the position of the laser copy
-		laserInstance.set_global_pos(get_node("KinematicBody2D/ShipSprite").get_global_pos() + Vector2(24,24))
-		laserInstance2.set_global_pos(get_node("KinematicBody2D/ShipSprite").get_global_pos() + Vector2(-24,24))
+		laserInstance.set_global_pos(get_node("KinematicBody2D/ShipSprite").get_global_pos() + Vector2(0,24))
+	
 		
 		#make a collision exception with the attacker
 		#get_node("Laser" + str(laserCount) + "/KinematicBody2D").add_collision_exception_with(get_node("KinematicBody2D"))
