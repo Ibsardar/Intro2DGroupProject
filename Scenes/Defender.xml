@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="5" version="2.1" version_name="Godot Engine v2.1.stable.official">
-	<ext_resource path="res://Scripts/move.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://Scripts/DefenderKinematics.gd" type="Script" index="0"></ext_resource>
 	<ext_resource path="res://Graphics/Ships/ship_001.tex" type="Texture" index="1"></ext_resource>
 	<ext_resource path="res://Graphics/Ships/ship_001_shield.tex" type="Texture" index="2"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
@@ -48,13 +48,14 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="71"> 				-1, -1, 1, 0, -1, 0, 0, 0, 0, 2, 2, -1, 8, 3, 0, 4, 1, 5, 2, 6, 0, 7, 3, 8, 3, 9, 4, 10, 5, 0, 1, 0, 14, 11, -1, 2, 12, 6, 13, 7, 0, 1, 0, 14, 15, -1, 3, 16, 8, 12, 6, 13, 9, 0, 1, 0, 17, 17, -1, 5, 16, 10, 18, 11, 19, 1, 20, 0, 21, 12, 0 </int_array>
+			<int_array  len="71"> 				-1, -1, 1, 0, -1, 0, 0, 0, 0, 2, 2, -1, 8, 3, 0, 4, 1, 5, 2, 6, 0, 7, 3, 8, 4, 9, 5, 10, 6, 0, 1, 0, 14, 11, -1, 2, 12, 7, 13, 8, 0, 1, 0, 14, 15, -1, 3, 16, 9, 12, 7, 13, 10, 0, 1, 0, 17, 17, -1, 5, 16, 11, 18, 12, 19, 1, 20, 0, 21, 4, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="13" shared="false">
 				<bool> False </bool>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
 				<matrix32> 4.42308, -0, 0, 2.92087, -0.27292, 12.1012 </matrix32>
-				<int> 1 </int>
+				<int> 24 </int>
+				<int> 0 </int>
 				<real> 0.08 </real>
 				<resource  external="0">  </resource>
 				<real> 180 </real>
@@ -63,7 +64,6 @@
 				<resource  external="2">  </resource>
 				<vector2> -0.27292, 12.1012 </vector2>
 				<vector2> 4.42308, 2.92087 </vector2>
-				<int> 0 </int>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

@@ -1,13 +1,24 @@
+
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+
 var height = 650
-var speed = GLOBALS.g_offense_spd_bullet
-var dmg = GLOBALS.g_offense_dmg
+var width = 850
+var speed = 1
+var dmg = 1
+var turn = 0
 var otherCollider
 
+func set_dmg(amt):
+	dmg = amt
+	
+func set_spd(amt):
+	speed = amt
+	
+func set_turn(amt):
+	amt = deg2rad(amt)
+	set_rot(amt)
+	turn = amt
 
 func checkCollisions():
 	
@@ -18,23 +29,10 @@ func checkCollisions():
 		get_node(".").queue_free()
 		
 		#get the other object
-		otherCollider = get_node("KinematicBody2D").get_collider()
+		var otherCollider = get_node("KinematicBody2D").get_collider()
 		
 		#Call method from otherCollider to do an event like losing health
-		otherCollider.collided()
-		
-		#
-		#  HANDLE THIS
-		#  in the "collided" function in otherCollider instead of here
-		#
-		# -------------------
-		#destroy other object
-		#otherCollider.queue_free()
-		# -------------------
-		#
-			
-			
-		
+		otherCollider.collided(dmg)
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -43,15 +41,20 @@ func _ready():
 	
 func _fixed_process(delta):
 	
-	#The laser's is moving downwards using KinematicBody2D
-	get_node("KinematicBody2D").move(Vector2(0,speed))
+	#The laser is moving upwards & tilted
+	var vec = Vector2(0,speed).rotated(turn)
+	get_node("KinematicBody2D").move(vec)
 	
 	
-	#The laser reached a certain position on screen
-	if get_node("KinematicBody2D").get_global_pos().y > height:
+	#The laser has left the outer boundary
+	var y = get_node("KinematicBody2D").get_global_pos().y
+	var x = get_node("KinematicBody2D").get_global_pos().x
+	if y > height ||  \
+	   y < -50 ||     \
+	   x > width ||   \
+	   x < -50:
 		#this deletes the tree structure of Laser. 
 		get_node(".").queue_free()
-		print(get_name())
 		
 		
 	checkCollisions()

@@ -6,7 +6,7 @@ var btn_left = false
 
 
 var current_speed = Vector2(0,0)
-var player_speed = GLOBALS.g_defense_spd #3
+var player_speed = GLOBALS.g_defense_spd
 var left_boundary = GLOBALS.g_right_boundary #50
 var right_boundary = GLOBALS.g_left_boundary #750
 var shipPositionY
@@ -41,6 +41,8 @@ func _fixed_process(delta):
 		movement(player_speed)
 	if btn_left:
 		movement(-player_speed)
-	
-
+		
+func collided(dmg=0):
+	#ignore bullet hits
+	pass
 

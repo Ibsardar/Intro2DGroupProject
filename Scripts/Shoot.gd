@@ -5,6 +5,8 @@ var firePressed = false
 var laserObject = preload("res://Scenes/Laser.tscn")
 var laserCount = 0
 var laserOffset = 0
+var bullet_speed = GLOBALS.g_offense_spd_bullet
+var damage = GLOBALS.g_offense_dmg
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -19,6 +21,8 @@ func _process(delta):
 		
 		#create a copy of the laser object
 		var laserInstance = laserObject.instance()
+		laserInstance.set_dmg(damage)
+		laserInstance.set_spd(bullet_speed)
 		
 		
 		#give the copy a name 

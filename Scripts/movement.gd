@@ -7,11 +7,10 @@ var btn_left = false
 
 var current_speed = Vector2(0,0)
 var player_speed = GLOBALS.g_offense_spd
-var left_boundary = GLOBALS.g_right_boundary #50
-var right_boundary = GLOBALS.g_left_boundary #750
+var left_boundary = GLOBALS.g_right_boundary
+var right_boundary = GLOBALS.g_left_boundary
 var shipPositionY
 
-	#set_linear_velocity(Vector2(current_speed.x,0))
 func movement(speed):
 	current_speed.x = speed
 	
@@ -41,3 +40,6 @@ func _fixed_process(delta):
 		movement(player_speed)
 	if btn_left:
 		movement(-player_speed)
+		
+func collided(dmg=0):
+	pass
